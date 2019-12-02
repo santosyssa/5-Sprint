@@ -1,0 +1,6 @@
+1.	Selecione todos os registros em que as descrições contenham em qualquer parte da palavra, 'js'. X
+2.	Selecione todos os registros em que as descrições terminem com a letra 't'. X
+3.	Selecione todos os registros em que as descrições terminem com a letra 'l'. X
+4.	Selecione todos os registros em que as descrições terminem com a letra 't' ou 'l'. X
+5.	Selecione todos os registros em que as descrições comecem com a letra 'b'. X
+6.	Selecione todos os registros em que as descrições comecem com a letra 'j' ou 'h'. X
