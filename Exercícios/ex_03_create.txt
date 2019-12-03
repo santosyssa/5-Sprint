@@ -1,0 +1,35 @@
+1.	Insira 5 novos registros conforme descrições abaixo:
+
+Titulo = Titulo U
+Descrição = Java
+Concluída = verdadeiro
+
+Titulo = Titulo O
+Descrição = CSharp
+Concluída = falso
+
+Titulo = Titulo P
+Descrição = Firebase
+
+Titulo = Titulo Y
+Descrição = Microsoft
+
+Titulo = Titulo R
+Descrição = Oracle
+Data de Inclusão = data de hoje
+
+
+db.tasks.insertMany([
+
+{ titilo: "Titulo U", descricao: "Java", concluida: "verdadeiro"},
+
+{ titilo: "Titulo O", descricao: "CSharp", concluida: "falso"}, 
+
+{ titilo: "Titulo P", descricao: "Firebase"}, 
+
+{ titilo: "Titulo Y", descricao: "Microsoft"}, 
+
+{ titilo: "Titulo R", descricao: "Oracle", 
+dataInclusao: new Date() }
+
+]).pretty()

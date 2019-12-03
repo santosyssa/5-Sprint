@@ -1,0 +1,13 @@
+H E L P !
+
+create - insert
+read - find
+update - update
+
+
+db.tasks.update 
+
+(
+   {_id},
+   {$set:{} }
+)
