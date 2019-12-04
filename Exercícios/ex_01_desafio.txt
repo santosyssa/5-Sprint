@@ -16,9 +16,30 @@ Ordem		Nome		Data Nascimento		Local		QtdGatos	Qtd Cachorros
 14		Justiceiro	15/07/1996		RJ		5		6
 
 
+db.herois.insert({nome: "Batman", dataNascimento: "25/03/1996", local: "Detroit", qtdCat: "2", qtdDog: "7"})
 
+db.herois.insert({nome:"Capitão América", dataNascimento: "01/04/1996", local: "EUA", qtdCat: "0", qtdDog: "9"})
 
+db.herois.insert({nome: "Homem Formiga", dataNascimento: "29/07/1996", local: "Londres", qtdCat: "4", qtdDog: "5"})
 
+db.herois.insert({nome: "Shrek", dataNascimento: "08/04/1996", local: "Londres", qtdCat: "5", qtdDog: "2"}) 
 
+db.herois.insert({nome: "Popeye", dataNascimento: "22/07/1996", local: "São Paulo", qtdCat: "2", qtdDog: "1"})
 
-db.herois.insertMany({nome: "Batman", dataNascimento: "25/03/1996", local: "Detroit", qtdCat: "2", qtdDog: "7"},{nome:"Capitão América", dataNascimento: "01/04/1996", local: "EUA", qtdCat: "0", qtdDog: "9"},{nome: "Homem Formiga", dataNascimento: "29/07/1996", local: "Londres", qtdCat: "4", qtdDog: "5"},{nome: "Shrek", dataNascimento: "08/04/1996", local: "Londres", qtdCat: "5", qtdDog: "2"}, {nome: "Popeye", dataNascimento: "22/07/1996", local: "São Paulo", qtdCat: "2", qtdDog: "1"}, {nome: "Mulher Maravilha", dataNascimento: "5/04/1996", local: "Itália", qtdCat: "3", qtdDog: "0"}, {nome: "Hawkeye", dataNascimento: "22/04/1996", local: "Roma", qtdCat: "1", qtdDog: "0"}, {nome: "Pantera Negra", dataNascimento: "22/04/1996", local: "Roma", qtdCat: "1", qtdDog: "3"}, {nome: "Hulk", dataNascimento: "10/06/1996", local: "Paris", qtdCat: "1", qtdDog: "1"}, {nome: "Homem Aranha", dataNascimento: "17/06/1996", local: "Suécia", qtdCat: "1", qtdDog: "3"}, {nome: "Wolverine", dataNascimento: "24/06/1996", local: "Austrália", qtdCat: "2", qtdDog: "0"}, {nome: "Deadpool", dataNascimento: "01/07/1996", local: "Suécia	", qtdCat: "3", qtdDog: "4"}, {nome: "Thor", dataNascimento: "08/07/1996", local: "RJ", qtdCat: "4", qtdDog: "5"}, {nome: "Justiceiro", dataNascimento: "15/07/1996", local: "RJ", qtdCat: "5", qtdDog: "6"})
+db.herois.insert({nome: "Mulher Maravilha", dataNascimento: "5/04/1996", local: "Itália", qtdCat: "3", qtdDog: "0"})
+
+db.herois.insert({nome: "Hawkeye", dataNascimento: "22/04/1996", local: "Roma", qtdCat: "1", qtdDog: "0"}) 
+
+db.herois.insert({nome: "Pantera Negra", dataNascimento: "22/04/1996", local: "Roma", qtdCat: "1", qtdDog: "3"})
+ 
+db.herois.insert({nome: "Hulk", dataNascimento: "10/06/1996", local: "Paris", qtdCat: "1", qtdDog: "1"})
+
+db.herois.insert({nome: "Homem Aranha", dataNascimento: "17/06/1996", local: "Suécia", qtdCat: "1", qtdDog: "3"})
+
+db.herois.insert({nome: "Wolverine", dataNascimento: "24/06/1996", local: "Austrália", qtdCat: "2", qtdDog: "0"})
+
+db.herois.insert({nome: "Deadpool", dataNascimento: "01/07/1996", local: "Suécia", qtdCat: "3", qtdDog: "4"})
+
+db.herois.insert({nome: "Thor", dataNascimento: "08/07/1996", local: "RJ", qtdCat: "4", qtdDog: "5"})
+
+db.herois.insert({nome: "Justiceiro", dataNascimento: "15/07/1996", local: "RJ", qtdCat: "5", qtdDog: "6"})

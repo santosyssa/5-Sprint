@@ -1,0 +1,47 @@
+Você receberá um arquivo com o formato csv contendo alguns personagens de quadrinhos e/ou desenhos animados e você deverá realizar as alterações que foram solicitadas abaixo pelo cliente.
+
+1.	Selecione todos os registros. 
+		db.herois.find().pretty()
+
+2.	Selecione apenas o primeiro registro.
+		db.herois.find().limit(1).pretty()
+
+3.	Selecione todos os registros em que o nome seja igual a ‘Shrek’ ou a quantidade de gatos seja igual a 2.
+ 		db.herois.find({nome: "Shrek" }).pretty()
+		db.herois.find({qtdCat: "2" }).pretty()
+
+4.	Selecione todos os registros em que o local de nascimento seja igual a Roma e necessariamente que a quantidade de cachorros seja igual a 3.
+		db.herois.find({local: "Roma", qtdDog: "3" }).pretty()
+
+5.	Selecione todos os registros em que a quantidade de gatos seja igual a 3 ou a quantidade de cachorros seja igual a 6.
+		db.herois.find({qtdCat: "3"}).pretty()
+		db.herois.find({qtdDog: "6" }).pretty()
+
+6.	Selecione todos os registros em que o nome comece com C.
+		db.herois.find({nome: /^C/ }).pretty()
+
+7.	Selecione todos os registros em que o nome comece com H.
+		db.herois.find({nome: /^H/ }).pretty()
+
+8.	Selecione todos os registros em que o nome termine com a.
+		db.herois.find({nome: /a$/ }).pretty()
+
+9.	Selecione todos os registros em que o nome contenha e.
+		db.herois.find({nome: /e/ }).pretty()
+
+10.	Selecione todos os registros em que o nome contenha ‘e’ ou ‘o’.
+		db.herois.find({$or : [{nome: /e/},{nome: /o/}]}).pretty()
+
+11.	Insira 3 novos super-heróis.
+		db.herois.insert({nome: "Iron Man", dataNascimento: "29/05/1996", local: "Long Island", qtdCat: "3", qtdDog: "8"})
+		db.herois.insert({nome: "Naruto", dataNascimento: "15/02/1996", local: "Konoha", qtdCat: "3", qtdDog: "10"})
+		db.herois.insert({nome: "Simba", dataNascimento: "18/07/1996", local: "Safari", qtdCat: "7", qtdDog: "4"})
+
+12.	Delete 1 super-herói em que o nome seja igual a Thor.
+		db.herois.remove({"_id": ObjectId("5de7f9f85ecc51a99e6cdd24")})
+
+
+13.	Atualize a quantidade de gatos em que o usuário com o registro de nome ‘Deadpool’ possui. Atualize a quantidade de gatos de ‘3’ para ‘7’.
+		db.herois.update( {"_id" : ObjectId("5de7f9ee5ecc51a99e6cdd23")}, {$set: {qtdCat: "7"}})
+
+14.	Selecione todos os registros que foram trabalhados e exporte para um arquivo JSON.
