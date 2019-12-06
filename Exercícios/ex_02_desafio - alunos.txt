@@ -29,47 +29,122 @@
 10.	Procure todos os alunos que tenham nascido em são paulo ou os livros ‘MySQL’ e ‘MongoDB’.
 		db.t_alunos.find({ "livros.titulo" : { $in : ["MySQL","MongoDB"]}, nasceuEmSp: true}).pretty()	
 
+=========================================================================================
+
 Exercícios
+
+
 1.	Selecione todos os registros em que os livros contenham em qualquer parte da palavra, 'Clean'.
-		db.t_aluno.find({"livros.titulo" : "Clean"}).pretty()
+		db.t_alunos.find({"livros.titulo" :  /^Clean/}).pretty()
+
 
 2.	Selecione todos os registros em que os títulos dos livros terminem com a letra 'S'.
-		db.t_aluno.find({"livros.titulo"  /S$/}).pretty()
+		db.t_alunos.find({"livros.titulo" :  /S$/}).pretty()
+
 
 3.	Selecione todos os registros em que todos os livros terminem com a letra 't'.
+		
+		db.t_alunos.find({"livros.titulo" :  /t$/}).pretty()
+
+
 4.	Selecione todos os nomes das alunos terminem com a letra 'k' ou 'o'.
+
+		db.t_alunos.find({"livros.titulo" :  {$in : [/k$/, /o$/] }}).pretty()
+
+
 5.	Selecione todos os registros em que os nomes comecem com a letra 'a'.
+
+		db.t_alunos.find({"livros.titulo" :  /a$/i}).pretty()
+
+
 6.	Selecione todos os registros em que nomes comecem com a letra 'a' ou 'h'.
+		
+		db.t_alunos.find({"livros.titulo" :  {$in : [/^a/i, /^h/i] }}).pretty()
+
+=========================================================================================
 
 Ordenação
+
+
 ordena pelo campo _id de forma crescente
+	db.t_alunos.find({}).sort({_id: 1}).pretty()
+
 ordena pelo campo _id de forma decrescente
+	db.t_alunos.find({}).sort({_id: -1}).pretty()
+
 ordena pelo campo nome de forma crescente e pega o primeiro registro
+	db.t_alunos.find({}).sort({nome : 1}).limit(1).pretty()
+
 seleciona somente o primeiro registro
+	db.t_alunos.find({}).sort({_id: 1}).limit(1).pretty()
  
+=========================================================================================
+
 Exercícios
-1.	Crie 5 novos registros de alunos.
-Deve conter os critérios abaixo. 3 em sp e 2 que não nasceram em sp.
+
+
+1.	Crie 4 novos registros de alunos.
+
+Deve conter os critérios abaixo. 0 em sp e 1 que não nasceram em sp.
 Deve conter pelo menos alguns dos livros colocados: HTML, CSS, Design, JavaScript, Java, C#, MySQL, MongoDB.
 A data de nascimento deve ser inferior a data atual.
  
-Exercícios
-1.	Atualize os registros criados no exercício anterior, com os filtros abaixo (não se esqueça de buscar pelo _id):
-Deixe todos os registros criados acima que estiverem como true para false, e vice-versa. 
-Atualize a data de nascimento de 2 alunos.
-Inclua pelo menos 3 livros que elas tenham lido.
+db.t_alunos.insert({nome: "Ashley", dateOfBirth: "28/07/1996", nasceuEmSp: false , "livros": [ {"titulo": "Java", "leu": true}, {"titulo": "JavaScript", "leu": true }, {"titulo": "Design", "leu": true}]})
+
+ db.t_alunos.insert({nome: "Jéssica", dateOfBirth: "10/01/1996", nasceuEmSp: true , "livros": [ {"titulo": "MongoDB", "leu": true}, {"titulo": "MySQL", "leu": true }, {"titulo": "C#", "leu": false}]})
+
+ db.t_alunos.insert({nome: "Henrique", dateOfBirth: "16/09/1996", nasceuEmSp: false , "livros": [ {"titulo": "CSS", "leu": false}, {"titulo": "HTML", "leu": false }, {"titulo": "Design", "leu": false}]})
+
+db.t_alunos.insert({nome: "Gustavo", dateOfBirth: "05/05/1996", nasceuEmSp: true , "livros": [ {"titulo": "Java", "leu": false}, {"titulo": "JavaScript", "leu": false }, {"titulo": "Design", "leu": true}]})
+
+db.t_alunos.insert({nome: "Eduardo", dateOfBirth: "26/02/1996", nasceuEmSp: true , "livros": [ {"titulo": "C#", "leu": true}, {"titulo": "MySQL", "leu": false }, {"titulo": "MongoDB", "leu": true}]})
+
+=========================================================================================
 
 Exercícios
-1.	Exclua 5 itens dada uma determinada condição.
-Exemplo:
+
+
+1.	Atualize os registros criados no exercício anterior, com os filtros abaixo (não se esqueça de buscar pelo _id):
+
+
+Deixe todos os registros criados acima que estiverem como true para false, e vice-versa. 
+
+db.t_alunos.update( {"_id" : ObjectId("5dea8df741d5533c6fe7da2a")}, {$set: {nasceuEmSp: false}})
+
+Atualize a data de nascimento de 2 alunos.
+
+db.t_alunos.update( {"_id" : ObjectId("5dea8dec41d5533c6fe7da29")}, {$set: {dateOfBirth :"27/01/1996" }}) 
+
+
+Inclua pelo menos 3 livros que elas tenham lido.
+
+db.t_alunos.update( {"_id" : ObjectId("5dea8df741d5533c6fe7da2a")}, {$push: {"livros": [ {"titulo": "Java", "leu": true}, {"titulo": "Harry Potter: Principe Mestiço", "leu": true}, {"titulo": "A Ordem dos Bichos", "leu": true}] }})
+
+
+=========================================================================================
+
+Exercícios
+
+
+1.	Exclua 5 itens dada uma determinada condição:
+
 Por ordenação de inserção, os dois primeiros que foram inseridos.
-Por ordem alfabética, os dois primeiros.
+
+db.t_alunos.remove({"_id": ObjectId("5dea8d6141d5533c6fe7da27")})
+
+
+Por ordem alfabética, os dois primeiros. 
+
+db.t_alunos.remove({"_id": ObjectId("5de80ca5bc4c4a1a0f99cd47")})
+
+
 Por ordem de signo decrescente, o primeiro signo.
 
 
+db.t_alunos.remove({"_id": ObjectId("5dea8dec41d5533c6fe7da29")})
 
 
-
+=========================================================================================
  
 Desafio Extra
 Por ordem de habilidades, a que possui o maior registro de habilidades.
